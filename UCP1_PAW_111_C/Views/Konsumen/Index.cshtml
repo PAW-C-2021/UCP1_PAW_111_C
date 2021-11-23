@@ -1,0 +1,53 @@
+﻿@model IEnumerable<UCP1_PAW_111_C.Models.Konsuman>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayName("Nama")
+            </th>
+            <th>
+                @Html.DisplayName("NoTelpon")
+            </th>
+            <th>
+                @Html.DisplayName("UserName")
+            </th>
+            <th>
+                @Html.DisplayName("Password")
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nama)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NoTelpon)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UserName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Password)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.IdKonsumen"><i class="fa fa-marker fa-lg"></i></a> |
+                <a asp-action="Details" asp-route-id="@item.IdKonsumen"><i class="fas fa-list"></i></a> |
+                <a asp-action="Delete" asp-route-id="@item.IdKonsumen"><i class="fa fa-trash-alt fa-lg"></i></a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

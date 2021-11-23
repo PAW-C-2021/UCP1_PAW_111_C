@@ -1,0 +1,49 @@
+﻿@model UCP1_PAW_111_C.Models.Transaksi
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Transaksi</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="IdTransaksi" />
+            <div class="form-group">
+                <label asp-for="IdKonsumen" class="control-label"></label>
+                <select asp-for="IdKonsumen" class="form-control" asp-items="ViewBag.IdKonsumen"></select>
+                <span asp-validation-for="IdKonsumen" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IdAdmin" class="control-label"></label>
+                <select asp-for="IdAdmin" class="form-control" asp-items="ViewBag.IdAdmin"></select>
+                <span asp-validation-for="IdAdmin" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IdProduk" class="control-label"></label>
+                <select asp-for="IdProduk" class="form-control" asp-items="ViewBag.IdProduk"></select>
+                <span asp-validation-for="IdProduk" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TotalBiaya" class="control-label"></label>
+                <input asp-for="TotalBiaya" class="form-control" />
+                <span asp-validation-for="TotalBiaya" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
